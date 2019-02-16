@@ -4,9 +4,10 @@
     <color name="colorPrimaryDark">@color/primaryDarkColor</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="white">#FFFFFF</color>
+    <color name="black">#212121</color>
 
     <color name="cartrack_color">#FF9800</color>
-
 
 
     <color name="primaryColor">#ef6c00</color>
@@ -18,10 +19,10 @@
     <color name="light_orange">#ffa726</color>
     <color name="deep_orange">#ef6c00</color>
 
+    <color name="orange_200">#ffcc80</color>
+    <color name="orange_700">#ff6d00</color>
 
 
-    <color name="purple_500">#9C27B0</color>
-    <color name="deep_purple_500">#673AB7</color>
     <color name="indigo_500">#3F51B5</color>
     <color name="blue_500">#2196F3</color>
     <color name="cyan_500">#00BCD4</color>

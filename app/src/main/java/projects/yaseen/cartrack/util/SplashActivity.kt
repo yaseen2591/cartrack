@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_splash.*
 import projects.yaseen.cartrack.R
-import projects.yaseen.cartrack.login.LoginActivity
+import projects.yaseen.cartrack.view.LoginActivity
 
 class SplashActivity : AppCompatActivity() , Animator.AnimatorListener{
 
