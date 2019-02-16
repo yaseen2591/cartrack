@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">@color/primaryColor</color>
+    <color name="colorPrimaryDark">@color/primaryDarkColor</color>
     <color name="colorAccent">#D81B60</color>
+
+
+    <color name="cartrack_color">#FF9800</color>
+
+
+
+    <color name="primaryColor">#ef6c00</color>
+    <color name="primaryLightColor">#ff9d3f</color>
+    <color name="primaryDarkColor">#b53d00</color>
+    <color name="primaryTextColor">#000000</color>
+
+
+    <color name="light_orange">#ffa726</color>
+    <color name="deep_orange">#ef6c00</color>
+
+
+
+    <color name="purple_500">#9C27B0</color>
+    <color name="deep_purple_500">#673AB7</color>
+    <color name="indigo_500">#3F51B5</color>
+    <color name="blue_500">#2196F3</color>
+    <color name="cyan_500">#00BCD4</color>
+    <color name="light_blue_500">#03A9F4</color>
 </resources>
