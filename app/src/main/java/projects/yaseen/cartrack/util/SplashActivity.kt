@@ -19,6 +19,7 @@ class SplashActivity : AppCompatActivity(), Animator.AnimatorListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        lottie_animation_view.speed = 3.0f
         lottie_animation_view.playAnimation()
         lottie_animation_view.repeatCount = 1
         lottie_animation_view.addAnimatorListener(this)
@@ -30,14 +31,14 @@ class SplashActivity : AppCompatActivity(), Animator.AnimatorListener {
 
     override fun onAnimationEnd(animation: Animator?) {
 
-      val usersListViewModel : LiveData<List<UserDatabaseModel>> =  getUsers()
+        val usersListViewModel: LiveData<List<UserDatabaseModel>> = getUsers()
 
         usersListViewModel.observe(this, Observer<List<UserDatabaseModel>> { userList ->
-            if (userList?.isEmpty()!!){
+            if (userList?.isEmpty()!!) {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
-            }else{
+            } else {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -46,7 +47,6 @@ class SplashActivity : AppCompatActivity(), Animator.AnimatorListener {
 
 
     }
-
 
 
     fun getUsers(): LiveData<List<UserDatabaseModel>> {

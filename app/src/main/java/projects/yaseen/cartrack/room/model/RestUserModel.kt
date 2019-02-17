@@ -11,7 +11,7 @@ data class RestUserModel (
     var name : String,
     var username : String,
     var email:String,
-//    var address: Address,
+//    var address: String,
     var phone :String,
     var website : String
 //    var company: Company
@@ -30,8 +30,8 @@ data class RestUserModel (
 //    var lat : Double,
 //    var lng : Double
 //)
-//
-//
+
+
 //data class Company(
 //    var name : String,
 //    var catchPhrase : String,

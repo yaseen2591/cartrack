@@ -32,6 +32,7 @@ class UsersRecyclerViewAdapter(_context: Context, _userList: List<RestUserModel>
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = userList[position]
         holder.userName.text = user.name
+        holder.email.text = user.email
 
         val generator = ColorGenerator.MATERIAL // or use DEFAULT
         val color: Int = generator.getColor(user.email)
@@ -45,7 +46,10 @@ class UsersRecyclerViewAdapter(_context: Context, _userList: List<RestUserModel>
 
     class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val userName: TextView = itemView.findViewById(R.id.userName)
+        val email: TextView = itemView.findViewById(R.id.email)
+
         val userAvatar: ImageView = itemView.findViewById(R.id.userAvatar)
+
     }
 
 }
