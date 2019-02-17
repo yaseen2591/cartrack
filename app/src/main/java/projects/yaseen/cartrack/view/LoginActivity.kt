@@ -1,6 +1,7 @@
 package projects.yaseen.cartrack.view
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.graphics.drawable.AnimationDrawable
 import android.support.v7.app.AppCompatActivity
@@ -8,10 +9,13 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import projects.yaseen.cartrack.R
 import kotlinx.android.synthetic.main.activity_login.*
+import projects.yaseen.cartrack.App
 import projects.yaseen.cartrack.interfaces.LoginResultCallbacks
 import projects.yaseen.cartrack.databinding.ActivityLoginBinding
 import projects.yaseen.cartrack.model.LoginViewModel
 import projects.yaseen.cartrack.model.LoginViewModelFactory
+import projects.yaseen.cartrack.model.User
+import projects.yaseen.cartrack.room.model.UserDatabaseModel
 
 
 class LoginActivity : AppCompatActivity(), LoginResultCallbacks {
@@ -27,6 +31,7 @@ class LoginActivity : AppCompatActivity(), LoginResultCallbacks {
         country.setOnClickListener { view ->
             showCountries()
         }
+
         val frameAnimation = coordinatorlayout.getBackground() as AnimationDrawable
         frameAnimation.setEnterFadeDuration(2000)
         frameAnimation.setExitFadeDuration(4000)
@@ -34,8 +39,22 @@ class LoginActivity : AppCompatActivity(), LoginResultCallbacks {
     }
 
 
-    override fun onSuccess(message: Int) {
-        // TODO store user details in room database
+    override fun onSuccess(user: User) {
+
+        Thread(Runnable {
+            App.database!!.userDao().deleteAllUsers()
+            val userModel: UserDatabaseModel = UserDatabaseModel()
+            userModel.email = user.getEmail()
+            userModel.authToken = java.util.UUID.randomUUID().toString()
+            userModel.country = user.getCountry()
+
+            App.database!!.userDao().insertUser(userModel)
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }).start()
     }
 
     override fun onError(validationCode: Int) {

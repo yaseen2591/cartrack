@@ -1,10 +1,12 @@
 package projects.yaseen.cartrack.model
 
+import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import projects.yaseen.cartrack.interfaces.LoginResultCallbacks
+import projects.yaseen.cartrack.room.model.UserDatabaseModel
 
 class LoginViewModel(private val listener: LoginResultCallbacks) : ViewModel() {
     private val user: User
@@ -67,10 +69,11 @@ class LoginViewModel(private val listener: LoginResultCallbacks) : ViewModel() {
         var loginCode: Int = user.isDataValid()
 
         if (loginCode == -1)
-            listener.onSuccess(-1)
+            listener.onSuccess(user)
         else
             listener.onError(loginCode)
     }
+
 
 
 }
